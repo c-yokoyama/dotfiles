@@ -1,34 +1,38 @@
-# ディレクトリ名を入力するだけで移動
+# my alias
+alias ls='ls -GF'
+alias ll='ls -l'
+alias la='ls -a'
+alias lla='ls -al'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias kc='kubectl'
+
 setopt autocd
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd autols
 
-# Auto ls
 autols(){
   [[ ${AUTOLS_DIR:-$PWD} != $PWD ]] && ls
   AUTOLS_DIR="${PWD}"
 }
 
-# コマンド訂正
 setopt correct
 
-# コマンド履歴ファイルの保存先
-export HISTFILE=${HOME}/.zsh_history
-# メモリに保存される履歴の件数
-export HISTSIZE=1000
-# 履歴ファイルに保存される履歴の件数
-export SAVEHIST=10000
-# 重複を記録しない
-setopt hist_ignore_dups
-# 開始と終了を記録
-setopt EXTENDED_HISTORY
-
-# コマンド履歴検索
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
+export HISTFILE=${HOME}/.zsh_history
+# メモリに保存される履歴の件数
+export HISTSIZE=500
+# 履歴ファイルに保存される履歴の件数
+export SAVEHIST=2000
+# 重複を記録しない
+setopt hist_ignore_dups
+# 開始と終了を記録
+setopt EXTENDED_HISTORY
 
 # 補完候補を詰めて表示する
 setopt list_packed 
@@ -80,7 +84,6 @@ if [ -d $HOME/.anyenv ] ; then
 fi
 
 # Go
-#export GO_VERSION=1.8.3
 export GO_VERSION=1.9.3
 export GOROOT=$HOME/.anyenv/envs/goenv/versions/$GO_VERSION
 export GOPATH=$HOME/gocode
@@ -88,15 +91,6 @@ export PATH=$HOME/.anyenv/envs/goenv/shims/bin:$PATH
 export PATH=$GOROOT/bin:$PATH
 echo Now using golang v$GO_VERSION
 
-# my alias
-alias ls='ls -GF'
-alias ll='ls -l'
-alias la='ls -a'
-alias lla='ls -al'
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
-alias kc='kubectl'
 
 ## zplug
 # Check if zplug is installed
@@ -109,17 +103,13 @@ source ~/.zplug/init.zsh
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "peco/peco", as:command, from:gh-r
-zplug "tcnksm/docker-alias"
 
-# Supports oh-my-zsh plugins and the like
 zplug "plugins/git", from:oh-my-zsh, if:"(( $+commands[git] ))"
 zplug "plugins/brew", from:oh-my-zsh
 zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
-setopt prompt_subst # Make sure propt is able to be generated properly.
 zplug "themes/candy", from:oh-my-zsh, as:theme
 
-# check コマンドで未インストール項目があるかどうか
-# あればインストール
+# check コマンドで未インストール項目があるかどうか。 あればインストール
 if [ ! ~/.zplug/last_zshrc_check_time -nt ~/.zshrc ]; then
     touch ~/.zplug/last_zshrc_check_time
     if ! zplug check --verbose; then
@@ -129,8 +119,6 @@ if [ ! ~/.zplug/last_zshrc_check_time -nt ~/.zshrc ]; then
         fi
     fi
 fi
-
-# プラグインを読み込み、コマンドにパスを通す
 zplug load
 
 # zsh-completionsを利用
@@ -143,18 +131,6 @@ fi
 if [ -e /usr/local/share/zsh/site-functions ]; then
 	    fpath=(/usr/local/share/zsh/site-functions $fpath)
 fi
-
-
-# zprof
-if (which zprof > /dev/null 2>&1) ;then
-  zprof
-fi
-
-# zcompile
-if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
-  zcompile ~/.zshrc
-fi
-
 # k8s
 source <(kubectl completion zsh)
 
@@ -188,3 +164,16 @@ fi
 
 ### Added by IBM Cloud CLI
 source /usr/local/Bluemix/bx/zsh_autocomplete
+
+if (which zprof > /dev/null 2>&1) ;then
+  zprof
+fi
+
+# zcompile
+if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
+  zcompile ~/.zshrc
+fi
+
+if type zprof > /dev/null 2>&1; then
+  zprof | less
+fi
