@@ -12,7 +12,7 @@ alias kc='kubectl'
 # anyenv
 if [ -d $HOME/.anyenv ] ; then
     export PATH="$HOME/.anyenv/bin:$PATH"
-    eval "$(anyenv init -)"
+    eval "$(anyenv init - --no-rehash)"
     # tmux対応
     for D in `\ls $HOME/.anyenv/envs`
     do
@@ -26,7 +26,6 @@ export GOROOT=$HOME/.anyenv/envs/goenv/versions/$GO_VERSION
 export GOPATH=$HOME/gocode
 export PATH=$HOME/.anyenv/envs/goenv/shims/bin:$PATH
 export PATH=$GOROOT/bin:$PATH
-echo Now using golang v$GO_VERSION
 
 # Options
 setopt autocd
@@ -53,6 +52,7 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
+# B
 # auto ls
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd autols
@@ -96,15 +96,13 @@ function peco-history-selection() {
 zle -N peco-history-selection
 bindkey '^R' peco-history-selection
 
-## zplug
+# zplug
 source ~/.zplug/init.zsh
 zplug 'zsh-users/zsh-completions'
 zplug 'zsh-users/zaw'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 zplug check || zplug install
 zplug "peco/peco", as:command, from:gh-r
-zplug "plugins/git", from:oh-my-zsh, if:"(( $+commands[git] ))"
-zplug "plugins/brew", from:oh-my-zsh
 zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
 zplug "themes/candy", from:oh-my-zsh, as:theme
 zplug load
@@ -120,7 +118,6 @@ if [ -e /usr/local/share/zsh/site-functions ]; then
 	    fpath=(/usr/local/share/zsh/site-functions $fpath)
 fi
 ### 補完
-autoload -U compinit; compinit -C
 ### 補完方法毎にグループ化する。
 zstyle ':completion:*' format '%B%F{blue}%d%f%b'
 zstyle ':completion:*' group-name ''
