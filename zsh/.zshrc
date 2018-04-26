@@ -1,5 +1,5 @@
-# my alias
-alias ls='ls -GF'
+# my aliases
+alias ls='ls -FGp'
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -al'
@@ -8,38 +8,62 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias kc='kubectl'
 
+# Programming
+# anyenv
+if [ -d $HOME/.anyenv ] ; then
+    export PATH="$HOME/.anyenv/bin:$PATH"
+    eval "$(anyenv init -)"
+    # tmux対応
+    for D in `\ls $HOME/.anyenv/envs`
+    do
+        export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
+    done
+fi
+
+# Go
+export GO_VERSION=1.9.3
+export GOROOT=$HOME/.anyenv/envs/goenv/versions/$GO_VERSION
+export GOPATH=$HOME/gocode
+export PATH=$HOME/.anyenv/envs/goenv/shims/bin:$PATH
+export PATH=$GOROOT/bin:$PATH
+echo Now using golang v$GO_VERSION
+
+# Options
 setopt autocd
-autoload -Uz add-zsh-hook
-add-zsh-hook precmd autols
-
-autols(){
-  [[ ${AUTOLS_DIR:-$PWD} != $PWD ]] && ls
-  AUTOLS_DIR="${PWD}"
-}
-
 setopt correct
+setopt list_packed 
+# 直前の重複を記録しない
+setopt hist_ignore_dups
+# 重複したヒストリは追加しない
+setopt hist_ignore_all_dups
+setopt hist_reduce_blanks
+setopt auto_list
+setopt complete_in_word
+# 開始と終了を記録
+setopt EXTENDED_HISTORY
+# メモリに保存される履歴の件数
+export HISTSIZE=500
+# 履歴ファイルに保存される履歴の件数
+export SAVEHIST=2000
+export HISTFILE=${HOME}/.zsh_history
 
+# history設定
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
-export HISTFILE=${HOME}/.zsh_history
-# メモリに保存される履歴の件数
-export HISTSIZE=500
-# 履歴ファイルに保存される履歴の件数
-export SAVEHIST=2000
-# 重複を記録しない
-setopt hist_ignore_dups
-# 開始と終了を記録
-setopt EXTENDED_HISTORY
-
-# 補完候補を詰めて表示する
-setopt list_packed 
+# auto ls
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd autols
+autols(){
+  [[ ${AUTOLS_DIR:-$PWD} != $PWD ]] && ls
+  AUTOLS_DIR="${PWD}"
+}
 
 # Homebrew
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-# brew doctorのwarning回避:  PATHから一時的に以下を除いて実行
+# brew doctorのwarning回避, PATHから一時的に以下を除いて実行
 alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:/} brew"
 
 # z
@@ -72,66 +96,72 @@ function peco-history-selection() {
 zle -N peco-history-selection
 bindkey '^R' peco-history-selection
 
-# anyenv
-if [ -d $HOME/.anyenv ] ; then
-    export PATH="$HOME/.anyenv/bin:$PATH"
-    eval "$(anyenv init -)"
-    # tmux対応
-    for D in `\ls $HOME/.anyenv/envs`
-    do
-        export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
-    done
-fi
-
-# Go
-export GO_VERSION=1.9.3
-export GOROOT=$HOME/.anyenv/envs/goenv/versions/$GO_VERSION
-export GOPATH=$HOME/gocode
-export PATH=$HOME/.anyenv/envs/goenv/shims/bin:$PATH
-export PATH=$GOROOT/bin:$PATH
-echo Now using golang v$GO_VERSION
-
-
 ## zplug
-# Check if zplug is installed
-if [[ ! -d ~/.zplug ]]; then
-  git clone https://github.com/zplug/zplug ~/.zplug
-  source ~/.zplug/init.zsh && zplug update --self
-fi
 source ~/.zplug/init.zsh
-
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "zsh-users/zsh-history-substring-search"
+zplug 'zsh-users/zsh-completions'
+zplug 'zsh-users/zaw'
+zplug 'zsh-users/zsh-syntax-highlighting', defer:2
+zplug check || zplug install
 zplug "peco/peco", as:command, from:gh-r
-
 zplug "plugins/git", from:oh-my-zsh, if:"(( $+commands[git] ))"
 zplug "plugins/brew", from:oh-my-zsh
 zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
 zplug "themes/candy", from:oh-my-zsh, as:theme
-
-# check コマンドで未インストール項目があるかどうか。 あればインストール
-if [ ! ~/.zplug/last_zshrc_check_time -nt ~/.zshrc ]; then
-    touch ~/.zplug/last_zshrc_check_time
-    if ! zplug check --verbose; then
-        printf "Install? [y/N]: "
-        if read -q; then
-           echo; zplug install
-        fi
-    fi
-fi
 zplug load
 
-# zsh-completionsを利用
+# zsh-completions
 if [ -e /usr/local/share/zsh-completions ]; then
-	    fpath=(/usr/local/share/zsh-completions $fpath)
+	fpath=(/usr/local/share/zsh-completions $fpath)
 fi
 if [ -e /usr/local/share/zsh/functions ]; then
-	    fpath=(/usr/local/share/zsh/functions $fpath)
+	fpath=(/usr/local/share/zsh/functions $fpath)
 fi
 if [ -e /usr/local/share/zsh/site-functions ]; then
 	    fpath=(/usr/local/share/zsh/site-functions $fpath)
 fi
-# k8s
+### 補完
+autoload -U compinit; compinit -C
+### 補完方法毎にグループ化する。
+zstyle ':completion:*' format '%B%F{blue}%d%f%b'
+zstyle ':completion:*' group-name ''
+### 補完侯補をメニューから選択する。
+### select=2: 補完候補を一覧から選択する。補完候補が2つ以上なければすぐに補完する。
+zstyle ':completion:*:default' menu select=2
+### 補完候補に色を付ける。
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+### 補完候補がなければより曖昧に候補を探す。
+### m:{a-z}={A-Z}: 小文字を大文字に変えたものでも補完する。
+### r:|[._-]=*: 「.」「_」「-」の前にワイルドカード「*」があるものとして補完する。
+#zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z} r:|[._-]=*'
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+zstyle ':completion:*' keep-prefix
+zstyle ':completion:*' recent-dirs-insert both
+### 補完候補
+### _oldlist 前回の補完結果を再利用する。
+### _complete: 補完する。
+### _match: globを展開しないで候補の一覧から補完する。
+### _history: ヒストリのコマンドも補完候補とする。
+### _ignored: 補完候補にださないと指定したものも補完候補とする。
+### _approximate: 似ている補完候補も補完候補とする。
+### _prefix: カーソル以降を無視してカーソル位置までで補完する。
+#zstyle ':completion:*' completer _oldlist _complete _match _history _ignored _approximate _prefix
+zstyle ':completion:*' completer _complete _ignored
+
+## 補完候補をキャッシュする。
+zstyle ':completion:*' use-cache yes
+zstyle ':completion:*' cache-path ~/.zsh/cache
+
+# zcompile
+if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
+  zcompile ~/.zshrc
+fi
+# zprof
+if type zprof > /dev/null 2>&1; then
+  zprof | less
+fi
+
+
 source <(kubectl completion zsh)
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -155,6 +185,7 @@ fi
 
 ### azure completion - end ###
 
+# Serverless Framework
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
 [[ -f /Users/c-yokoyama/.anyenv/envs/nodenv/versions/6.10.3/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/c-yokoyama/.anyenv/envs/nodenv/versions/6.10.3/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
@@ -169,11 +200,3 @@ if (which zprof > /dev/null 2>&1) ;then
   zprof
 fi
 
-# zcompile
-if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
-  zcompile ~/.zshrc
-fi
-
-if type zprof > /dev/null 2>&1; then
-  zprof | less
-fi
