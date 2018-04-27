@@ -510,7 +510,7 @@
 	<key>MaxVertically</key>
 	<false/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/mydotfiles/iterm2_setting</string>
+	<string>~/myrepositories/dotfiles/iterm2_setting</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -554,11 +554,11 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>980 406 700 622 0 0 1680 1028 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>3251 454 796 473 1680 -71 2560 1418 </string>
+	<string>3153 491 796 473 1680 -71 2560 1418 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>230 834 592 584 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>43 0 818 1028 0 0 1680 1028 </string>
+	<string>2966 -71 1274 1418 1680 -71 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>234 0 770 950 0 0 2560 1418 </string>
 	<key>New Bookmarks</key>
@@ -1355,7 +1355,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/c-yokoyama/mydotfiles/iterm2_setting</string>
+	<string>/Users/c-yokoyama/myrepositories/dotfiles/iterm2_setting</string>
 	<key>PromptOnQuit</key>
 	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
@@ -1375,7 +1375,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-04-20T00:40:38Z</date>
+	<date>2018-04-26T04:26:46Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
