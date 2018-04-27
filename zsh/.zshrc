@@ -41,9 +41,9 @@ setopt complete_in_word
 # 開始と終了を記録
 setopt EXTENDED_HISTORY
 # メモリに保存される履歴の件数
-export HISTSIZE=500
+export HISTSIZE=1000
 # 履歴ファイルに保存される履歴の件数
-export SAVEHIST=2000
+export SAVEHIST=10000
 export HISTFILE=${HOME}/.zsh_history
 
 # history設定
