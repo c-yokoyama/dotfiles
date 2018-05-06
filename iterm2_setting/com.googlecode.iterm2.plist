@@ -488,7 +488,7 @@
 	<key>HotKeyTogglesWindow</key>
 	<false/>
 	<key>Hotkey</key>
-	<true/>
+	<false/>
 	<key>HotkeyChar</key>
 	<integer>32</integer>
 	<key>HotkeyCode</key>
@@ -512,7 +512,7 @@
 	<key>NSNavLastRootDirectory</key>
 	<string>~/myrepositories/dotfiles/iterm2_setting</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
-	<string>{712, 448}</string>
+	<string>{720, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -552,13 +552,13 @@
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>3347 808 400 129 1680 -281 2560 1418 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>980 406 700 622 0 0 1680 1028 </string>
+	<string>1860 796 700 622 0 0 2560 1418 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>3153 491 796 473 1680 -71 2560 1418 </string>
+	<string>1461 730 796 473 0 0 2560 1418 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>230 834 592 584 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>2966 -71 1274 1418 1680 -71 2560 1418 </string>
+	<string>1726 468 770 950 0 0 2560 1418 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>234 0 770 950 0 0 2560 1418 </string>
 	<key>New Bookmarks</key>
@@ -1375,7 +1375,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-04-26T04:26:46Z</date>
+	<date>2018-05-06T11:07:03Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
