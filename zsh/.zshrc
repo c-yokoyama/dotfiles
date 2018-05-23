@@ -8,7 +8,12 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias kc='kubectl'
 
-# Programming
+# Homebrew
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+# brew doctorのwarning回避, PATHから一時的に以下を除いて実行
+alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:/} brew"
+
+### Dev env ###
 # anyenv
 if [ -d $HOME/.anyenv ] ; then
     export PATH="$HOME/.anyenv/bin:$PATH"
@@ -61,10 +66,6 @@ autols(){
   AUTOLS_DIR="${PWD}"
 }
 
-# Homebrew
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-# brew doctorのwarning回避, PATHから一時的に以下を除いて実行
-alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:/} brew"
 
 # z
 source ~/.zsh.d/z.sh
