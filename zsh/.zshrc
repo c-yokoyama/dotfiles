@@ -152,7 +152,6 @@ zstyle ':completion:*' cache-path ~/.zsh/cache
 
 # zcompile
 if [ ~/.zshrc -nt ~/.zshrc.zwc -o ! -e ~/.zshrc.zwc ]; then
-  echo "zcompile"
   zcompile ~/.zshrc
 fi
 # zprof
