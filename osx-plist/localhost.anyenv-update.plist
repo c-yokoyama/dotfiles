@@ -7,19 +7,21 @@
     <string>localhost.anyenv-update</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/bin/sh</string>
+    	<string>/bin/sh</string>
 		<string>-c</string>
-        <string>anyenv update &amp;&amp; /usr/local/bin/terminal-notifier -title 'Anyenv Upgrader' -message 'Anyenv upgraded!'</string>
+        <string>/Users/c-yokoyama/.anyenv/bin/anyenv update &amp;&amp; /usr/local/bin/terminal-notifier -title 'Anyenv Upgrader' -message 'Anyenv upgraded!'</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
+    <key>StandardErrorPath</key>
+	<string>/tmp/localhost.anyenv-upgrade.stderr</string>
+	<key>StandardOutPath</key>
+	<string>/tmp/localhost.anyenv-upgrade.stdout</string>
     <key>StartCalendarInterval</key>
 	<dict>
 		<key>Hour</key>
-		<integer>24</integer>
+		<integer>12</integer>
 	</dict>
 </dict>
 </plist>
-
-<!-- @@@@LingonWhatStart:ssh-add -A@@@@LingonWhatEnd -->
 
