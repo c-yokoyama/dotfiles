@@ -17,7 +17,7 @@ alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:/} brew"
 # anyenv
 if [ -d $HOME/.anyenv ] ; then
     export PATH="$HOME/.anyenv/bin:$PATH"
-    eval "$(anyenv init - --no-rehash)"
+    eval "$(anyenv init - --no-rehash zsh)"
     # tmux対応
     for D in `\ls $HOME/.anyenv/envs`
     do
@@ -58,7 +58,7 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
-# B
+
 # auto ls
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd autols
@@ -67,9 +67,8 @@ autols(){
   AUTOLS_DIR="${PWD}"
 }
 
-
 # z
-source ~/.zsh.d/z.sh
+. `brew --prefix`/etc/profile.d/z.sh
 # z and peco command-history
 function peco-z-search
 {
@@ -131,9 +130,7 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 ### 補完候補がなければより曖昧に候補を探す。
 ### m:{a-z}={A-Z}: 小文字を大文字に変えたものでも補完する。
 ### r:|[._-]=*: 「.」「_」「-」の前にワイルドカード「*」があるものとして補完する。
-#zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z} r:|[._-]=*'
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-
 zstyle ':completion:*' keep-prefix
 zstyle ':completion:*' recent-dirs-insert both
 ### 補完候補
@@ -144,7 +141,7 @@ zstyle ':completion:*' recent-dirs-insert both
 ### _ignored: 補完候補にださないと指定したものも補完候補とする。
 ### _approximate: 似ている補完候補も補完候補とする。
 ### _prefix: カーソル以降を無視してカーソル位置までで補完する。
-#zstyle ':completion:*' completer _oldlist _complete _match _history _ignored _approximate _prefix
+zstyle ':completion:*' completer _oldlist _complete _match _history _ignored _approximate _prefix
 zstyle ':completion:*' completer _complete _ignored
 
 ## 補完候補をキャッシュする。
