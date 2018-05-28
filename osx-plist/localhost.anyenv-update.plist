@@ -9,7 +9,7 @@
     <array>
     	<string>/bin/sh</string>
 		<string>-c</string>
-        <string>/Users/c-yokoyama/.anyenv/bin/anyenv update &amp;&amp; /usr/local/bin/terminal-notifier -title 'Anyenv Upgrader' -message 'Anyenv upgraded!'</string>
+        <string>$HOME/.anyenv/bin/anyenv update &amp;&amp; /usr/local/bin/terminal-notifier -title 'Anyenv Upgrader' -message 'Anyenv upgraded!'</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
