@@ -26,7 +26,7 @@ if [ -d $HOME/.anyenv ] ; then
 fi
 
 # Go
-export GO_VERSION=1.9.6
+export GO_VERSION=1.9.7
 export GOROOT=$HOME/.anyenv/envs/goenv/versions/$GO_VERSION
 export GOPATH=$HOME/gocode
 export PATH=$HOME/.anyenv/envs/goenv/shims/bin:$PATH
