@@ -25,6 +25,9 @@ if [ -d $HOME/.anyenv ] ; then
     done
 fi
 
+# Node.js
+export PATH=$(npm bin -g):$PATH
+
 # Go
 export GO_VERSION=1.10.3
 export GOROOT=$HOME/.anyenv/envs/goenv/versions/$GO_VERSION
