@@ -29,7 +29,7 @@ fi
 export PATH=$(npm bin -g):$PATH
 
 # Go
-export GO_VERSION=1.10.3
+export GO_VERSION=1.11.0
 export GOROOT=$HOME/.anyenv/envs/goenv/versions/$GO_VERSION
 export GOPATH=$HOME/gocode
 export PATH=$HOME/.anyenv/envs/goenv/shims/bin:$PATH
@@ -178,3 +178,7 @@ if [ -f '/Users/c-yokoyama/google-cloud-sdk/completion.zsh.inc' ]; then source '
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /Users/c-yokoyama/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/c-yokoyama/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh
+
+autoload -U +X bashcompinit && bashcompinit
+
+complete -o nospace -C /usr/local/bin/terraform terraform
