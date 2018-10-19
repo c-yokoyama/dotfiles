@@ -179,6 +179,6 @@ if [ -f '/Users/c-yokoyama/google-cloud-sdk/completion.zsh.inc' ]; then source '
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /Users/c-yokoyama/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/c-yokoyama/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh
 
-autoload -U +X bashcompinit && bashcompinit
+# autoload -U +X bashcompinit && bashcompinit
 
 complete -o nospace -C /usr/local/bin/terraform terraform
