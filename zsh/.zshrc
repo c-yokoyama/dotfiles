@@ -36,6 +36,10 @@ export PATH=$HOME/.anyenv/envs/goenv/shims/bin:$PATH
 export PATH=$GOROOT/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
 
+# Java
+export JAVA_HOME=`/System/Library/Frameworks/JavaVM.framework/Versions/A/Commands/java_home -v "1.8"`
+export PATH=$JAVA_HOME/bin/:$PATH
+
 # Options
 setopt autocd
 setopt correct
