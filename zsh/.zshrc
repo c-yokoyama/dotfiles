@@ -29,7 +29,7 @@ fi
 export PATH=$(npm bin -g):$PATH
 
 # Go
-export GO_VERSION=1.11.4
+export GO_VERSION=1.11.5
 export GOROOT=$HOME/.anyenv/envs/goenv/versions/$GO_VERSION
 export GOPATH=$HOME/gocode
 export PATH=$HOME/.anyenv/envs/goenv/shims/bin:$PATH
@@ -186,3 +186,7 @@ if [ -f '/Users/yokoyama/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/y
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/yokoyama/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/yokoyama/google-cloud-sdk/completion.zsh.inc'; fi
+
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /Users/yokoyama/.anyenv/envs/nodenv/versions/8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/yokoyama/.anyenv/envs/nodenv/versions/8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
