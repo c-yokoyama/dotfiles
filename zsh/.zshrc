@@ -7,6 +7,7 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias kc='kubectl'
+export GREP_OPTIONS='--color=auto' 
 
 # Homebrew
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
