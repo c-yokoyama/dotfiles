@@ -30,7 +30,7 @@ fi
 export PATH=$(npm bin -g):$PATH
 
 # Go
-export GO_VERSION=1.12.0
+export GO_VERSION=1.12.1
 export GOROOT=$HOME/.anyenv/envs/goenv/versions/$GO_VERSION
 export GOPATH=$HOME/gocode
 export PATH=$HOME/.anyenv/envs/goenv/shims/bin:$PATH
