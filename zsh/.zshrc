@@ -1,4 +1,4 @@
-# my aliases
+# My aliases
 alias ls='ls -FGp'
 alias ll='ls -l'
 alias la='ls -a'
@@ -14,7 +14,6 @@ export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 # brew doctorのwarning回避, PATHから一時的に以下を除いて実行
 alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:/} brew"
 
-### Dev env ###
 # anyenv
 if [ -d $HOME/.anyenv ] ; then
     export PATH="$HOME/.anyenv/bin:$PATH"
@@ -41,7 +40,7 @@ export PATH=$GOPATH/bin:$PATH
 export JAVA_HOME=`/System/Library/Frameworks/JavaVM.framework/Versions/A/Commands/java_home -v "1.8"`
 export PATH=$JAVA_HOME/bin/:$PATH
 
-# Options
+### Options ###
 setopt autocd
 setopt correct
 setopt list_packed 
@@ -55,11 +54,10 @@ setopt complete_in_word
 # 開始と終了を記録
 setopt EXTENDED_HISTORY
 # メモリに保存される履歴の件数
-export HISTSIZE=1000
+export HISTSIZE=2000
 # 履歴ファイルに保存される履歴の件数
-export SAVEHIST=10000
+export SAVEHIST=15000
 export HISTFILE=${HOME}/.zsh_history
-
 # history設定
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
@@ -107,13 +105,14 @@ bindkey '^R' peco-history-selection
 
 # zplug
 source ~/.zplug/init.zsh
-zplug 'zsh-users/zsh-completions'
+zplug 'zsh-users/zsh-completions', use:'src/_*', lazy:true
 zplug 'zsh-users/zaw'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 zplug check || zplug install
 zplug "peco/peco", as:command, from:gh-r
 zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
-zplug "themes/candy", from:oh-my-zsh, as:theme
+# zplug "themes/candy", from:oh-my-zsh, as:theme
+zplug "themes/cloud", from:oh-my-zsh, as:theme
 zplug load
 
 # zsh-completions
@@ -168,8 +167,6 @@ fi
 ################################
 
 source <(kubectl completion zsh)
-
-
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
