@@ -6,7 +6,7 @@ alias lla='ls -al'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias kc='kubectl'
+alias k='kubectl'
 export GREP_OPTIONS='--color=auto' 
 
 # Homebrew
