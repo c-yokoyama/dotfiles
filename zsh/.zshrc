@@ -10,7 +10,6 @@ alias k='kubectl'
 alias gs='git status'
 alias gf='git fetch -a'
 export GREP_OPTIONS='--color=auto' 
-
 # Homebrew
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 # brew doctorのwarning回避, PATHから一時的に以下を除いて実行
@@ -30,7 +29,7 @@ fi
 # Node.js
 export PATH=$(npm bin -g):$PATH
 
-# Go
+# Golang
 export GO_VERSION=1.12.1
 export GOROOT=$HOME/.anyenv/envs/goenv/versions/$GO_VERSION
 export GOPATH=$HOME/gocode
@@ -75,9 +74,9 @@ autols(){
   AUTOLS_DIR="${PWD}"
 }
 
-# z
+# Install z
 . `brew --prefix`/etc/profile.d/z.sh
-# z and peco command-history
+# z and peco
 function peco-z-search
 {
   which peco z > /dev/null
@@ -94,6 +93,7 @@ function peco-z-search
   fi
 }
 zle -N peco-z-search
+# dir search
 bindkey '^f' peco-z-search
 
 # peco-history
@@ -105,17 +105,37 @@ function peco-history-selection() {
 zle -N peco-history-selection
 bindkey '^R' peco-history-selection
 
-# zplug
-source ~/.zplug/init.zsh
-zplug "zsh-users/zsh-autosuggestions"
-zplug 'zsh-users/zsh-completions', use:'src/_*', lazy:true
-zplug 'zsh-users/zaw'
-zplug 'zsh-users/zsh-syntax-highlighting', defer:2
-zplug check || zplug install
-zplug "peco/peco", as:command, from:gh-r
-zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
-zplug "themes/cloud", from:oh-my-zsh, as:theme
-zplug load
+### zplugin ###
+source $HOME/.zplugin/bin/zplugin.zsh
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+
+zplugin light zsh-users/zsh-autosuggestions
+zplugin light zsh-users/zsh-completions
+zplugin light zsh-users/zsh-syntax-highlighting
+zplugin light zsh-users/zaw
+# 利用可能なエイリアスを使わずにコマンドを実行した際に通知するプラグイン
+zplugin light 'djui/alias-tips'
+# zsh の補完を使いやすく設定する oh-my-zsh のスニペットをロード
+zplugin snippet 'OMZ::lib/completion.zsh'
+zplugin snippet 'OMZ::lib/compfix.zsh'
+# Load OMZ Git library
+zplugin snippet OMZ::lib/git.zsh
+# Load Git plugin from OMZ
+zplugin snippet OMZ::plugins/git/git.plugin.zsh
+zplugin cdclear -q # <- forget completions provided up to this moment
+setopt promptsubst
+# Load theme from OMZ
+zplugin snippet OMZ::themes/cloud.zsh-theme
+zplugin light zdharma/fast-syntax-highlighting
+
+zplugin light nnao45/zsh-kubectl-completion
+
+
+autoload -Uz colors 
+colors
+autoload -Uz compinit
+compinit
 
 # zsh-completions
 if [ -e /usr/local/share/zsh-completions ]; then
@@ -127,7 +147,7 @@ fi
 if [ -e /usr/local/share/zsh/site-functions ]; then
 	    fpath=(/usr/local/share/zsh/site-functions $fpath)
 fi
-### 補完
+
 ### 補完方法毎にグループ化する。
 zstyle ':completion:*' format '%B%F{blue}%d%f%b'
 zstyle ':completion:*' group-name ''
@@ -160,16 +180,15 @@ zstyle ':completion:*' cache-path ~/.zsh/cache
 # zcompile
 if [ ~/.zshrc -nt ~/.zshrc.zwc -o ! -e ~/.zshrc.zwc ]; then
   zcompile ~/.zshrc
+  zcompile ~/.zplugin/bin/zplugin.zsh
 fi
+
 # zprof
 if type zprof > /dev/null 2>&1; then
   zprof | less
 fi
 
-source <(kubectl completion zsh)
 ######################################################################
-
-complete -o nospace -C /usr/local/bin/terraform terraform
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/yokoyama/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/yokoyama/google-cloud-sdk/path.zsh.inc'; fi
@@ -180,3 +199,4 @@ if [ -f '/Users/yokoyama/google-cloud-sdk/completion.zsh.inc' ]; then source '/U
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /Users/yokoyama/.anyenv/envs/nodenv/versions/8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/yokoyama/.anyenv/envs/nodenv/versions/8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
+
