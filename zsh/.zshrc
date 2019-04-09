@@ -91,17 +91,8 @@ function peco-z-search
   fi
 }
 zle -N peco-z-search
-# dir search
+# dir history search
 bindkey '^f' peco-z-search
-
-# peco-history
-function peco-history-selection() {
-    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
-    CURSOR=$#BUFFER
-    zle reset-prompt
-}
-zle -N peco-history-selection
-bindkey '^R' peco-history-selection
 
 ### zplugin ###
 source $HOME/.zplugin/bin/zplugin.zsh
@@ -110,8 +101,6 @@ autoload -Uz _zplugin
 
 zplugin light zsh-users/zsh-autosuggestions
 zplugin light zsh-users/zsh-completions
-zplugin light zsh-users/zsh-syntax-highlighting
-zplugin light zsh-users/zaw
 # 利用可能なエイリアスを使わずにコマンドを実行した際に通知するプラグイン
 zplugin light 'djui/alias-tips'
 # zsh の補完を使いやすく設定する oh-my-zsh のスニペットをロード
@@ -126,9 +115,9 @@ setopt promptsubst
 # Load theme from OMZ
 zplugin snippet OMZ::themes/cloud.zsh-theme
 zplugin light zdharma/fast-syntax-highlighting
+zplugin light zdharma/history-search-multi-word
 
 zplugin light nnao45/zsh-kubectl-completion
-
 
 autoload -Uz colors 
 colors
@@ -198,3 +187,5 @@ if [ -f '/Users/yokoyama/google-cloud-sdk/completion.zsh.inc' ]; then source '/U
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /Users/yokoyama/.anyenv/envs/nodenv/versions/8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/yokoyama/.anyenv/envs/nodenv/versions/8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
 
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
