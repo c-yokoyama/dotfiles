@@ -107,13 +107,13 @@ bindkey '^R' peco-history-selection
 
 # zplug
 source ~/.zplug/init.zsh
+zplug "zsh-users/zsh-autosuggestions"
 zplug 'zsh-users/zsh-completions', use:'src/_*', lazy:true
 zplug 'zsh-users/zaw'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 zplug check || zplug install
 zplug "peco/peco", as:command, from:gh-r
 zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
-# zplug "themes/candy", from:oh-my-zsh, as:theme
 zplug "themes/cloud", from:oh-my-zsh, as:theme
 zplug load
 
@@ -166,18 +166,8 @@ if type zprof > /dev/null 2>&1; then
   zprof | less
 fi
 
-################################
-
 source <(kubectl completion zsh)
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/c-yokoyama/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/c-yokoyama/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/c-yokoyama/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/c-yokoyama/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh
-
-# autoload -U +X bashcompinit && bashcompinit
+######################################################################
 
 complete -o nospace -C /usr/local/bin/terraform terraform
 
