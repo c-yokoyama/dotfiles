@@ -1,12 +1,14 @@
 # My aliases
 alias ls='ls -FGp'
 alias ll='ls -l'
-alias la='ls -a'
-alias lla='ls -al'
+alias la='ls -A'
+alias lla='ls -Al'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias k='kubectl'
+alias gs='git status'
+alias gf='git fetch -a'
 export GREP_OPTIONS='--color=auto' 
 
 # Homebrew
