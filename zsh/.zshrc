@@ -10,6 +10,10 @@ alias k='kubectl'
 alias awsp="source _awsp"
 
 export GREP_OPTIONS='--color=auto' 
+
+# direnv
+export EDITOR=vim
+eval "$(direnv hook zsh)"
 # Homebrew
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 # brew doctorのwarning回避, PATHから一時的に以下を除いて実行
@@ -177,6 +181,9 @@ if type zprof > /dev/null 2>&1; then
   zprof | less
 fi
 
+# k8s 
+source /usr/local/etc/zsh-kubectl-prompt/kubectl.zsh
+RPROMPT='%{$fg[yellow]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
 
 ######################################################################
 
