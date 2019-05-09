@@ -7,6 +7,8 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias k='kubectl'
+alias awsp="source _awsp"
+
 export GREP_OPTIONS='--color=auto' 
 # Homebrew
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
@@ -174,6 +176,7 @@ fi
 if type zprof > /dev/null 2>&1; then
   zprof | less
 fi
+
 
 ######################################################################
 
