@@ -188,15 +188,15 @@ kubeoff
 
 ######################################################################
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/yokoyama/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/yokoyama/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/yokoyama/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/yokoyama/google-cloud-sdk/completion.zsh.inc'; fi
-
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /Users/yokoyama/.anyenv/envs/nodenv/versions/8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/yokoyama/.anyenv/envs/nodenv/versions/8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/c-yokoyama/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/c-yokoyama/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/c-yokoyama/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/c-yokoyama/google-cloud-sdk/completion.zsh.inc'; fi
