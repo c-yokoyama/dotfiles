@@ -182,8 +182,9 @@ if type zprof > /dev/null 2>&1; then
 fi
 
 # k8s 
-source /usr/local/etc/zsh-kubectl-prompt/kubectl.zsh
-RPROMPT='%{$fg[yellow]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
+source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+PS1='$(kube_ps1 )'$PS1
+kubeoff
 
 ######################################################################
 
