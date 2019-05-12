@@ -11,9 +11,6 @@ alias awsp="source _awsp"
 
 export GREP_OPTIONS='--color=auto' 
 
-# direnv
-export EDITOR=vim
-eval "$(direnv hook zsh)"
 # Homebrew
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 # brew doctorのwarning回避, PATHから一時的に以下を除いて実行
@@ -180,6 +177,10 @@ fi
 if type zprof > /dev/null 2>&1; then
   zprof | less
 fi
+
+# direnv
+export EDITOR=vim
+eval "$(direnv hook zsh)"
 
 # k8s 
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
