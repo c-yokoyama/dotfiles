@@ -7,6 +7,7 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias k='kubectl'
+alias kon='kubeon'
 alias awsp="source _awsp"
 
 export GREP_OPTIONS='--color=auto' 
