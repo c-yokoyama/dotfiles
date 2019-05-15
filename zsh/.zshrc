@@ -183,9 +183,18 @@ fi
 export EDITOR=vim
 eval "$(direnv hook zsh)"
 
+# awsp
+function aws_prof {
+  local profile="${AWS_PROFILE:=default}"
+
+  echo "%{$fg_bold[red]%}aws:(%{$fg[yellow]%}${profile}%{$fg_bold[red]%})%{$reset_color%} "
+}
+
+PS1='$(aws_prof)'' '$PS1
+
 # k8s 
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
-PS1='$(kube_ps1 )'$PS1
+PS1='$(kube_ps1 )'' '$PS1
 kubeoff
 
 ######################################################################
