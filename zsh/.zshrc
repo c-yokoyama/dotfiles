@@ -10,6 +10,16 @@ alias k='kubectl'
 alias kon='kubeon'
 alias awsp="source _awsp"
 
+: "peco snippet" && {
+  function peco-select-snippet() {
+    BUFFER=$(cat ~/.snippets | peco)
+    CURSOR=$#BUFFER
+    zle -R -c
+  }
+  zle -N peco-select-snippet
+  bindkey '^t' peco-select-snippet
+}
+
 export GREP_OPTIONS='--color=auto' 
 
 # Homebrew
