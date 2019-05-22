@@ -10,6 +10,7 @@ alias k='kubectl'
 alias kon='kubeon'
 alias awsp="source _awsp"
 
+bindkey -e
 : "peco snippet" && {
   function peco-select-snippet() {
     BUFFER=$(cat ~/.snippets | peco)
@@ -17,7 +18,7 @@ alias awsp="source _awsp"
     zle -R -c
   }
   zle -N peco-select-snippet
-  bindkey '^t' peco-select-snippet
+  bindkey '^T' peco-select-snippet
 }
 
 export GREP_OPTIONS='--color=auto' 
