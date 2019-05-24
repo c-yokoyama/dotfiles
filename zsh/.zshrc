@@ -8,6 +8,8 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias k='kubectl'
 alias kon='kubeon'
+alias kctx='kubectx'
+alias kns='kubens'
 alias awsp="source _awsp"
 
 bindkey -e
