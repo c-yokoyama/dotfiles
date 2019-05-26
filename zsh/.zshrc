@@ -1,8 +1,9 @@
 # My aliases
-alias ls='ls -FGp'
-alias ll='ls -l'
-alias la='ls -A'
-alias lla='ls -Al'
+alias ls='lsd'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
