@@ -86,7 +86,7 @@ bindkey "^N" history-beginning-search-forward-end
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd autols
 autols(){
-  [[ ${AUTOLS_DIR:-$PWD} != $PWD ]] && ls
+  [[ ${AUTOLS_DIR:-$PWD} != $PWD ]] && ls -l
   AUTOLS_DIR="${PWD}"
 }
 
