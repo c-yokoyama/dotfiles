@@ -46,7 +46,7 @@ fi
 export PATH=$(npm bin -g):$PATH
 
 # Golang
-export GO_VERSION=1.12.4
+export GO_VERSION=1.12.6
 export GOROOT=$HOME/.anyenv/envs/goenv/versions/$GO_VERSION
 export GOPATH=$HOME/gocode
 export PATH=$HOME/.anyenv/envs/goenv/shims/bin:$PATH
