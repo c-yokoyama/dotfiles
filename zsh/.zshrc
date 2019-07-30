@@ -206,7 +206,10 @@ function aws_prof {
 
 PS1='$(aws_prof)'' '$PS1
 
-# k8s 
+### k8s ### 
+# krew
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 PS1='$(kube_ps1 )'' '$PS1
 kubeoff
