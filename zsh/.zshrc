@@ -112,6 +112,9 @@ zle -N peco-z-search
 # dir history search
 bindkey '^f' peco-z-search
 
+autoload -Uz colors 
+colors
+
 ### zplugin ###
 source $HOME/.zplugin/bin/zplugin.zsh
 autoload -Uz _zplugin
@@ -131,14 +134,12 @@ zplugin snippet OMZ::plugins/git/git.plugin.zsh
 zplugin cdclear -q # <- forget completions provided up to this moment
 setopt promptsubst
 # Load theme from OMZ
-zplugin snippet OMZ::themes/cloud.zsh-theme
+# zplugin snippet OMZ::themes/cloud.zsh-theme
+zplugin snippet OMZ::themes/mortalscumbag.zsh-theme
 zplugin light zdharma/fast-syntax-highlighting
 zplugin light zdharma/history-search-multi-word
-
 zplugin light nnao45/zsh-kubectl-completion
 
-autoload -Uz colors 
-colors
 autoload -Uz compinit
 compinit
 
@@ -201,7 +202,7 @@ eval "$(direnv hook zsh)"
 function aws_prof {
   local profile="${AWS_PROFILE:=default}"
 
-  echo "%{$fg_bold[red]%}aws:(%{$fg[yellow]%}${profile}%{$fg_bold[red]%})%{$reset_color%} "
+  echo "%{$fg_bold[white]%}(%{$fg_bold[red]%}aws:%{$fg[yellow]%}${profile}%{$fg_bold[white]%})%{$reset_color%} "
 }
 
 PS1='$(aws_prof)'' '$PS1
