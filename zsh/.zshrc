@@ -202,7 +202,7 @@ eval "$(direnv hook zsh)"
 function aws_prof {
   local profile="${AWS_PROFILE:=default}"
 
-  echo "%{$fg_bold[white]%}(%{$fg_bold[red]%}aws:%{$fg[yellow]%}${profile}%{$fg_bold[white]%})%{$reset_color%} "
+  echo "%{$fg_bold[white]%}(%{$fg_bold[red]%}aws|%{$fg[yellow]%}${profile}%{$fg_bold[white]%})%{$reset_color%} "
 }
 
 PS1='$(aws_prof)'' '$PS1
@@ -213,7 +213,6 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 PS1='$(kube_ps1 )'' '$PS1
-kubeoff
 
 ######################################################################
 
