@@ -133,9 +133,6 @@ zplugin snippet OMZ::lib/git.zsh
 zplugin snippet OMZ::plugins/git/git.plugin.zsh
 zplugin cdclear -q # <- forget completions provided up to this moment
 setopt promptsubst
-# Load theme from OMZ
-# zplugin snippet OMZ::themes/cloud.zsh-theme
-zplugin snippet OMZ::themes/mortalscumbag.zsh-theme
 zplugin light zdharma/fast-syntax-highlighting
 zplugin light zdharma/history-search-multi-word
 zplugin light nnao45/zsh-kubectl-completion
@@ -199,13 +196,13 @@ export EDITOR=vim
 eval "$(direnv hook zsh)"
 
 # awsp
-function aws_prof {
-  local profile="${AWS_PROFILE:=default}"
+#function aws_prof {
+#  local profile="${AWS_PROFILE:=default}"
 
-  echo "%{$fg_bold[white]%}(%{$fg_bold[red]%}aws|%{$fg[yellow]%}${profile}%{$fg_bold[white]%})%{$reset_color%} "
-}
+#  echo "%{$fg_bold[white]%}(%{$fg_bold[red]%}aws|%{$fg[yellow]%}${profile}%{$fg_bold[white]%})%{$reset_color%} "
+#}
 
-PS1='$(aws_prof)'' '$PS1
+#PS1='$(aws_prof)'' '$PS1
 
 ### k8s ### 
 # krew
@@ -213,6 +210,10 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 PS1='$(kube_ps1 )'' '$PS1
+
+# Set Spaceship ZSH as a prompt
+autoload -U promptinit; promptinit
+prompt spaceship
 
 ######################################################################
 
@@ -228,3 +229,4 @@ if [ -f '/Users/c-yokoyama/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/c-yo
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/c-yokoyama/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/c-yokoyama/google-cloud-sdk/completion.zsh.inc'; fi
+
