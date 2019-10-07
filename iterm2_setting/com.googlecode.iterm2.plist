@@ -562,6 +562,8 @@
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
+	<key>NSWindow Frame NSColorPanel</key>
+	<string>0 139 224 275 0 0 2560 1417 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>650 498 620 392 0 0 1920 1057 </string>
 	<key>NSWindow Frame SharedPreferences</key>
@@ -569,7 +571,7 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>931 312 592 584 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1674 467 675 821 0 0 2560 1417 </string>
+	<string>1283 56 1277 1361 0 0 2560 1417 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1644,7 +1646,11 @@
 	<key>NoSyncLastTipTime</key>
 	<real>584869886.70671403</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>123</integer>
+	<integer>126</integer>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<integer>0</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
 	<real>579829314.18541002</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>
@@ -2500,6 +2506,8 @@
 	<key>PrefsCustomFolder</key>
 	<string>/Users/c-yokoyama/my-repositories/dotfiles/iterm2_setting</string>
 	<key>PromptOnQuit</key>
+	<true/>
+	<key>PromptOnQuitEvenIfThereAreNoWindows</key>
 	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
 	<true/>
