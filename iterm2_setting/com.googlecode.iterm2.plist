@@ -506,7 +506,7 @@
 	<key>HotkeyModifiers</key>
 	<integer>524288</integer>
 	<key>IRMemory</key>
-	<integer>4</integer>
+	<integer>6</integer>
 	<key>JobName</key>
 	<true/>
 	<key>LeftCommand</key>
@@ -806,7 +806,7 @@
 			<key>Disable Window Resizing</key>
 			<true/>
 			<key>Draw Powerline Glyphs</key>
-			<true/>
+			<false/>
 			<key>Flashing Bell</key>
 			<false/>
 			<key>Foreground Color</key>
@@ -1149,7 +1149,7 @@
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
-			<integer>15000</integer>
+			<integer>8000</integer>
 			<key>Scrollback With Status Bar</key>
 			<true/>
 			<key>Scrollback in Alternate Screen</key>
@@ -1646,7 +1646,7 @@
 	<key>NoSyncLastTipTime</key>
 	<real>584869886.70671403</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>126</integer>
+	<integer>128</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
