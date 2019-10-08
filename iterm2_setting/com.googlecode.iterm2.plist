@@ -571,7 +571,7 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>931 312 592 584 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1283 56 1277 1361 0 0 2560 1417 </string>
+	<string>403 214 675 813 0 0 1680 1027 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1646,7 +1646,7 @@
 	<key>NoSyncLastTipTime</key>
 	<real>584869886.70671403</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>130</integer>
+	<integer>132</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -2387,14 +2387,15 @@
 	<key>NoSyncSearchHistory2</key>
 	<array>
 		<string>contents3</string>
+		<string>contents2</string>
+		<string>timed</string>
+		<string>timee</string>
+		<string>tme</string>
 		<string>timed out</string>
-		<string>timeed </string>
-		<string>connection</string>
-		<string>timeout</string>
-		<string>time out</string>
-		<string>client_max</string>
-		<string>client_max_body_size</string>
-		<string>nginxn</string>
+		<string>payds</string>
+		<string>warn</string>
+		<string>wrn</string>
+		<string>error</string>
 	</array>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>578899044.01003504</real>
@@ -2470,6 +2471,8 @@
 	<false/>
 	<key>PasteTabToStringTabStopSize</key>
 	<integer>4</integer>
+	<key>PerPaneBackgroundImage</key>
+	<false/>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -2526,7 +2529,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-10-06T13:48:24Z</date>
+	<date>2019-10-08T01:50:09Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
@@ -2548,7 +2551,7 @@
 	<key>SplitPaneDimmingAmount</key>
 	<real>0.50092531624415249</real>
 	<key>StatusBarPosition</key>
-	<integer>1</integer>
+	<integer>0</integer>
 	<key>SwitchTabModifier</key>
 	<integer>4</integer>
 	<key>SwitchWindowModifier</key>
