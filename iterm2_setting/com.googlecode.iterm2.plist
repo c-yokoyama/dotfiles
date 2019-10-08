@@ -800,7 +800,7 @@
 			<key>Default Bookmark</key>
 			<string>No</string>
 			<key>Disable Printing</key>
-			<false/>
+			<true/>
 			<key>Disable Smcup Rmcup</key>
 			<false/>
 			<key>Disable Window Resizing</key>
@@ -1637,7 +1637,7 @@
 		<key>screenFrame</key>
 		<string>{{0, 0}, {2560, 1440}}</string>
 		<key>topLeft</key>
-		<string>{452, 1133}</string>
+		<string>{239, 1111}</string>
 	</dict>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
@@ -2386,16 +2386,16 @@
 	</array>
 	<key>NoSyncSearchHistory2</key>
 	<array>
+		<string>es-bulk-charge-sales-commit-request</string>
+		<string>can not retrive</string>
+		<string>can not retruve</string>
+		<string>can not retrve</string>
+		<string>can not retre</string>
+		<string>can not retruee\ve</string>
 		<string>contents3</string>
 		<string>contents2</string>
 		<string>timed</string>
 		<string>timee</string>
-		<string>tme</string>
-		<string>timed out</string>
-		<string>payds</string>
-		<string>warn</string>
-		<string>wrn</string>
-		<string>error</string>
 	</array>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>578899044.01003504</real>
