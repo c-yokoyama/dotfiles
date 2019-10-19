@@ -13,6 +13,9 @@ alias kctx='kubectx'
 alias kns='kubens'
 alias awsp="source _awsp"
 
+# iTerm2 Shell Integration
+source ~/.iterm2_shell_integration.zsh
+
 bindkey -e
 : "peco snippet" && {
   function peco-select-snippet() {
