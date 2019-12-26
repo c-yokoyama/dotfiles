@@ -53,16 +53,12 @@ fi
 export PATH=$(npm bin -g):$PATH
 
 # Golang
-export GO_VERSION=1.13.4
+export GO_VERSION=1.13.5
 export GOROOT=$HOME/.anyenv/envs/goenv/versions/$GO_VERSION
 export GOPATH=$HOME/gocode
 export PATH=$HOME/.anyenv/envs/goenv/shims/bin:$PATH
 export PATH=$GOROOT/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
-
-# Java
-#export JAVA_HOME=`/System/Library/Frameworks/JavaVM.framework/Versions/A/Commands/java_home -v "1.8"`
-#export PATH=$JAVA_HOME/bin/:$PATH
 
 ### Options ###
 setopt autocd
@@ -78,9 +74,9 @@ setopt complete_in_word
 # 開始と終了を記録
 setopt EXTENDED_HISTORY
 # メモリに保存される履歴の件数
-export HISTSIZE=2000
+export HISTSIZE=5000
 # 履歴ファイルに保存される履歴の件数
-export SAVEHIST=15000
+export SAVEHIST=20000
 export HISTFILE=${HOME}/.zsh_history
 # history設定
 autoload history-search-end
@@ -236,4 +232,3 @@ if [ -f '/Users/c-yokoyama/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/c-yo
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/c-yokoyama/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/c-yokoyama/google-cloud-sdk/completion.zsh.inc'; fi
-

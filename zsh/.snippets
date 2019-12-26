@@ -1,8 +1,1 @@
-curl localhost -o /dev/null -w "%{http_code}\n" -s 
-while true; do `curl localhost` ; done
-tree --si --du -D -pug
-lsof -Pan -i tcp -i udp
-grh HEAD^
-glog  --oneline --pretty=format:'%h [%cd] %d %s <%an>' --date=format:'%Y/%m/%d %H:%M:%S'
-git checkout [commit hash] [file path]
-git diff [hash] [hash] filepath
+kgp | cut -d ' ' -f 1 | grep -v NAME | xargs kubectl delete pod
