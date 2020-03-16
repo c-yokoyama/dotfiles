@@ -15,6 +15,7 @@ alias kdp='kubectl describe pod'
 alias kdd='kubectl describe deploy'
 alias kctx='kubectx'
 alias kns='kubens'
+alias kb='kustomize build'
 alias awsp="source _awsp"
 
 # iTerm2 Shell Integration
