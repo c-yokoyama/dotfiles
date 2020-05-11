@@ -227,6 +227,7 @@ prompt spaceship
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
+complete -C '/usr/local/bin/aws_completer' aws
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/c-yokoyama/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/c-yokoyama/google-cloud-sdk/path.zsh.inc'; fi
