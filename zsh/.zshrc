@@ -94,6 +94,12 @@ autols(){
   AUTOLS_DIR="${PWD}"
 }
 
+# Pet
+function prev() {
+    PREV=$(fc -lrn | head -n 1)
+    sh -c "pet new `printf %q "$PREV"`"
+}
+
 # Install z
 . `brew --prefix`/etc/profile.d/z.sh
 # z and peco
