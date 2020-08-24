@@ -61,6 +61,9 @@ export PATH=$HOME/.anyenv/envs/goenv/shims/bin:$PATH
 export PATH=$GOROOT/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
 
+# sbt
+export PATH=/usr/local/bin/sbt/bin:$PATH
+
 ### Options ###
 setopt autocd
 setopt correct
@@ -240,3 +243,4 @@ if [ -f '/Users/c-yokoyama/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/c-yo
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/c-yokoyama/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/c-yokoyama/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="/usr/local/opt/bison/bin:$PATH"
