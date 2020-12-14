@@ -8,15 +8,13 @@ alias h='history'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias k='kubectl'
-alias kgp='kubectl get pod'
-alias kgd='kubectl get deploy'
-alias kdp='kubectl describe pod'
-alias kdd='kubectl describe deploy'
 alias kctx='kubectx'
 alias kns='kubens'
 alias kb='kustomize build'
 alias awsp="source _awsp"
+
+# kubectl-aliases
+[ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
 
 # iTerm2 Shell Integration
 source ~/.iterm2_shell_integration.zsh
