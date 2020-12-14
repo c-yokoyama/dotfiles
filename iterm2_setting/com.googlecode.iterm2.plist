@@ -445,6 +445,8 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>Default Arrangement Name</key>
+	<string>Work</string>
 	<key>Default Bookmark Guid</key>
 	<string>8973DF55-6DB3-4565-B5AE-5660C02AAE3D</string>
 	<key>DimBackgroundWindows</key>
@@ -1548,7 +1550,7 @@
 	<key>OpenBookmark</key>
 	<false/>
 	<key>OpenNoWindowsAtStartup</key>
-	<false/>
+	<true/>
 	<key>OpenTmuxWindowsIn</key>
 	<integer>0</integer>
 	<key>PassOnControlClick</key>
@@ -1660,6 +1662,8 @@
 	<integer>11</integer>
 	<key>WebKitStandardFont</key>
 	<string>.AppleSystemUIFont</string>
+	<key>Window Arrangements</key>
+	<dict/>
 	<key>WindowNumber</key>
 	<true/>
 	<key>WindowStyle</key>
