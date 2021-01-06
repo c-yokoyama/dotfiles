@@ -11,6 +11,8 @@ alias mv='mv -i'
 alias kctx='kubectx'
 alias kns='kubens'
 alias kb='kustomize build'
+alias kf='kubectl fuzzy'
+alias kfd='kf describe'
 alias awsp="source _awsp"
 
 # kubectl-aliases
