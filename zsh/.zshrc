@@ -55,11 +55,8 @@ fi
 export PATH=$(npm bin -g):$PATH
 
 # Golang
-export GO_VERSION=1.15.3
-export GOROOT=$HOME/.anyenv/envs/goenv/versions/$GO_VERSION
+export GOROOT=/usr/local/bin/
 export GOPATH=$HOME/gocode
-export PATH=$HOME/.anyenv/envs/goenv/shims/bin:$PATH
-export PATH=$GOROOT/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
 
 # sbt
