@@ -55,9 +55,10 @@ fi
 export PATH=$(npm bin -g):$PATH
 
 # Golang
-export GOROOT=/usr/local/bin/
+export GOROOT=/usr/local/Cellar/go/1.15.7_1/libexec
 export GOPATH=$HOME/gocode
 export PATH=$GOPATH/bin:$PATH
+export PATH=$GOROOT/bin:$PATH
 
 # sbt
 export PATH=/usr/local/bin/sbt/bin:$PATH
