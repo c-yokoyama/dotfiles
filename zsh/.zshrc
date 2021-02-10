@@ -37,8 +37,7 @@ export GREP_OPTIONS='--color=auto'
 
 # Homebrew
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-# brew doctorのwarning回避, PATHから一時的に以下を除いて実行
-alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:/} brew"
+alias brew='PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin brew'
 
 # anyenv
 if [ -d $HOME/.anyenv ] ; then
