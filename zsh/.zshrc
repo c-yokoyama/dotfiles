@@ -54,7 +54,8 @@ fi
 export PATH=$(npm bin -g):$PATH
 
 # Golang
-export GOROOT=/usr/local/Cellar/go/1.15.7_1/libexec
+GO_VERSION=1.15.8
+export GOROOT=/usr/local/Cellar/go/$GO_VERSION/libexec
 export GOPATH=$HOME/gocode
 export PATH=$GOPATH/bin:$PATH
 export PATH=$GOROOT/bin:$PATH
