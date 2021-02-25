@@ -19,6 +19,13 @@ alias awsp="source _awsp"
 # kubectl-aliases
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
 
+# Golang
+GO_VERSION=1.16
+export GOROOT=/usr/local/Cellar/go/$GO_VERSION/libexec
+export GOPATH=$HOME/gocode
+export PATH=$GOPATH/bin:$PATH
+export PATH=$GOROOT/bin:$PATH
+
 # iTerm2 Shell Integration
 source ~/.iterm2_shell_integration.zsh
 
@@ -52,13 +59,6 @@ fi
 
 # Node.js
 export PATH=$(npm bin -g):$PATH
-
-# Golang
-GO_VERSION=1.15.8
-export GOROOT=/usr/local/Cellar/go/$GO_VERSION/libexec
-export GOPATH=$HOME/gocode
-export PATH=$GOPATH/bin:$PATH
-export PATH=$GOROOT/bin:$PATH
 
 # sbt
 export PATH=/usr/local/bin/sbt/bin:$PATH
