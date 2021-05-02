@@ -20,7 +20,7 @@ alias awsp="source _awsp"
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
 
 # Golang
-GO_VERSION=1.16.2
+GO_VERSION=1.16.3
 export GOROOT=/usr/local/Cellar/go/$GO_VERSION/libexec
 export GOPATH=$HOME/gocode
 export PATH=$GOPATH/bin:$PATH
