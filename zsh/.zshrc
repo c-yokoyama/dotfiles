@@ -20,7 +20,7 @@ alias awsp="source _awsp"
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
 
 # Golang
-GO_VERSION=1.16.6
+GO_VERSION=1.17.2
 export GOROOT=/usr/local/Cellar/go/$GO_VERSION/libexec
 export GOPATH=$HOME/gocode
 export PATH=$GOPATH/bin:$PATH
@@ -236,10 +236,10 @@ prompt spaceship
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 complete -C '/usr/local/bin/aws_completer' aws
+export PATH="/usr/local/opt/bison/bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/c-yokoyama/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/c-yokoyama/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/c-yokoyama/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/c-yokoyama/google-cloud-sdk/completion.zsh.inc'; fi
-export PATH="/usr/local/opt/bison/bin:$PATH"
