@@ -13,11 +13,9 @@ alias h='history'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias kubectl='kubecolor'
 alias kctx='kubectx'
 alias kns='kubens'
 alias kb='kustomize build'
-alias kf='kubectl fuzzy'
 alias awsp="source _awsp"
 export GREP_OPTIONS='--color=auto'
 
@@ -26,11 +24,13 @@ autoload -U compinit
 compinit
 
 ### k8s
+source <(kubectl completion zsh)
+alias k='kubecolor'
+compdef __start_kubectl kubecolor k
+# kubectl_aliasesを入れていることでサブコマンドの補完が効かない
+[ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
 # krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-# kubectl-aliases
-[ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
-compdef __start_kubectl k
 # kube-ps1
 source "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
 PROMPT='$(kube_ps1)'$PROMPT
@@ -41,7 +41,6 @@ PROMPT='$(kube_ps1)'$PROMPT
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
 
 # anyenv
 eval "$(anyenv init -)"
