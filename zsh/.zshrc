@@ -25,10 +25,10 @@ compinit
 
 ### k8s
 source <(kubectl completion zsh)
-alias k='kubecolor'
-compdef __start_kubectl kubecolor k
-# kubectl_aliasesを入れていることでサブコマンドの補完が効かない
+compdef __start_kubectl k
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
+# TODO: kubecolorを使うようにして補完が効かないのでなおす
+alias k='kubecolor'
 # krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # kube-ps1
