@@ -132,3 +132,7 @@ zinit light 'djui/alias-tips'
 
 # iTerm2 Shell Integration
 source ~/.iterm2_shell_integration.zsh
+
+# 補完
+autoload -U compinit
+compinit
