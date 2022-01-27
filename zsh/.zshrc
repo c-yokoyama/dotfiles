@@ -46,11 +46,10 @@ fi
 eval "$(anyenv init -)"
 
 # Golang
-# GO_VERSION=1.17.2
-# export GOROOT=/usr/local/Cellar/go/$GO_VERSION/libexec
-# export GOPATH=$HOME/gocode
-# export PATH=$GOPATH/bin:$PATH
-# export PATH=$GOROOT/bin:$PATH
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
+export PATH=$GOROOT/bin:$PATH
 
 # Node.js
 export PATH=$(npm bin -g):$PATH
