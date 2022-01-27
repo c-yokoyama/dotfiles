@@ -1,3 +1,8 @@
+# Add to  PATH
+export PATH=$PATH:/usr/local/bin
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # My aliases
 alias ls='lsd'
 alias l='ls -l'
@@ -16,16 +21,19 @@ alias kf='kubectl fuzzy'
 alias awsp="source _awsp"
 export GREP_OPTIONS='--color=auto'
 
+# 補完
+autoload -U compinit
+compinit
+
 ### k8s
 # krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # kubectl-aliases
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
+compdef __start_kubectl k
 # kube-ps1
 source "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
 PROMPT='$(kube_ps1)'$PROMPT
-# Add to  PATH
-export PATH=$PATH:/usr/local/bin
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -34,8 +42,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # anyenv
 eval "$(anyenv init -)"
@@ -120,11 +126,7 @@ autoload -Uz _zinit
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit ice depth=1; zinit light romkatv/powerlevel10k
-zinit light nnao45/zsh-kubectl-completion
 zinit snippet OMZ::plugins/git/git.plugin.zsh
-# zsh の補完を使いやすく設定する oh-my-zsh のスニペットをロード
-zinit snippet 'OMZ::lib/completion.zsh'
-zinit snippet 'OMZ::lib/compfix.zsh'
 zinit light 'djui/alias-tips'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -132,7 +134,3 @@ zinit light 'djui/alias-tips'
 
 # iTerm2 Shell Integration
 source ~/.iterm2_shell_integration.zsh
-
-# 補完
-autoload -U compinit
-compinit
