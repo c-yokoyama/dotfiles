@@ -1,5 +1,5 @@
 # Add to  PATH
-export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:/usr/local/bin:/opt/homebrew/bin
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -20,8 +20,11 @@ alias awsp="source _awsp"
 export GREP_OPTIONS='--color=auto'
 
 # 補完
-autoload -U compinit
-compinit
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+
+# awscli
+complete -C '/opt/homebrew/bin/aws_completer' aws
 
 ### k8s
 source <(kubectl completion zsh)
