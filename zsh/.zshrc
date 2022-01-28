@@ -26,6 +26,9 @@ autoload -Uz compinit && compinit
 # awscli
 complete -C '/opt/homebrew/bin/aws_completer' aws
 
+# direnv
+eval "$(direnv hook zsh)"
+
 ### k8s
 source <(kubectl completion zsh)
 compdef __start_kubectl k
