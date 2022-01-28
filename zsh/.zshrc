@@ -30,11 +30,10 @@ complete -C '/opt/homebrew/bin/aws_completer' aws
 eval "$(direnv hook zsh)"
 
 ### k8s
+alias kubectl='kubecolor'
 source <(kubectl completion zsh)
 compdef __start_kubectl k
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
-# TODO: kubecolorを使うようにして補完が効かないのでなおす
-alias k='kubecolor'
 # krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # kube-ps1
