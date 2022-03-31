@@ -1,3 +1,7 @@
+# Fig pre block. Keep at the top of this file.
+export PATH="${PATH}:${HOME}/.local/bin"
+eval "$(fig init zsh pre)"
+
 # Add to  PATH
 export PATH=$PATH:/usr/local/bin:/opt/homebrew/bin
 # Homebrew
@@ -24,21 +28,16 @@ autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 
 # awscli
-complete -C '/opt/homebrew/bin/aws_completer' aws
+# complete -C '/opt/homebrew/bin/aws_completer' aws
 
 # direnv
 eval "$(direnv hook zsh)"
 
 ### k8s
 alias kubectl='kubecolor'
-source <(kubectl completion zsh)
-compdef __start_kubectl k
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
 # krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-# kube-ps1
-source "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
-PROMPT='$(kube_ps1)'$PROMPT
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -137,3 +136,6 @@ zinit light 'djui/alias-tips'
 
 # iTerm2 Shell Integration
 source ~/.iterm2_shell_integration.zsh
+
+# Fig post block. Keep at the bottom of this file.
+eval "$(fig init zsh post)"

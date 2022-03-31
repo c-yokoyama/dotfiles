@@ -460,7 +460,7 @@
 	<key>DoubleClickPerformsSmartSelection</key>
 	<true/>
 	<key>EnableAPIServer</key>
-	<false/>
+	<true/>
 	<key>EnableRendezvous</key>
 	<false/>
 	<key>EscapeShellCharsWithBackslash</key>
