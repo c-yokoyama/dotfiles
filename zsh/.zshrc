@@ -1,7 +1,5 @@
 # Fig pre block. Keep at the top of this file.
-export PATH="${PATH}:${HOME}/.local/bin"
-eval "$(fig init zsh pre)"
-
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
 # Add to  PATH
 export PATH=$PATH:/usr/local/bin:/opt/homebrew/bin
 # Homebrew
@@ -110,7 +108,7 @@ function peco-z-search
 }
 zle -N peco-z-search
 # peco dir history search
-bindkey '^f' peco-z-search
+bindkey '^r' peco-z-search
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -138,4 +136,4 @@ zinit light 'djui/alias-tips'
 source ~/.iterm2_shell_integration.zsh
 
 # Fig post block. Keep at the bottom of this file.
-eval "$(fig init zsh post)"
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
