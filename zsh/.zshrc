@@ -1,5 +1,5 @@
 # Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # Add to  PATH
 export PATH=$PATH:/usr/local/bin:/opt/homebrew/bin
 # Homebrew
@@ -18,15 +18,12 @@ alias mv='mv -i'
 alias kctx='kubectx'
 alias kns='kubens'
 alias kb='kustomize build'
-alias awsp="source _awsp"
+alias awsp='export AWS_PROFILE=$(aws configure list-profiles | fzf)'
 export GREP_OPTIONS='--color=auto'
 
 # 補完
 autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
-
-# awscli
-# complete -C '/opt/homebrew/bin/aws_completer' aws
 
 # direnv
 eval "$(direnv hook zsh)"
@@ -136,4 +133,4 @@ zinit light 'djui/alias-tips'
 source ~/.iterm2_shell_integration.zsh
 
 # Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

@@ -112,8 +112,10 @@ function! s:LoadBundles()
   NeoBundle 'itchyny/lightline.vim'
   " Python plugin
   NeoBundle 'davidhalter/jedi-vim'
+  NeoBundle 'tomasr/molokai'
  
   " ###読み込んだプラグインの設定###
+  " Bundle 'tomasr/molokai'
   "-------------------------------------------------
   " ステータスラインの設定
   "-------------------------------------------------
