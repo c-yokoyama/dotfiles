@@ -1,5 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # Add to  PATH
 export PATH=$PATH:/usr/local/bin:/opt/homebrew/bin
 # Homebrew
@@ -124,13 +122,7 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit snippet OMZ::plugins/git/git.plugin.zsh
-zinit light 'djui/alias-tips'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# iTerm2 Shell Integration
-source ~/.iterm2_shell_integration.zsh
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
