@@ -1,9 +1,14 @@
+# CodeWhisperer pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh"
 # Add to  PATH
 export PATH=$PATH:/usr/local/bin:/opt/homebrew/bin
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # My aliases
+alias k='kubectl'
 alias ls='lsd'
 alias l='ls -l'
 alias la='ls -a'
@@ -15,7 +20,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias kctx='kubectx'
 alias kns='kubens'
-alias kb='kustomize build'
+alias kb='kustomize build --load-restrictor LoadRestrictionsNone'
 alias awsp='export AWS_PROFILE=$(aws configure list-profiles | fzf)'
 export GREP_OPTIONS='--color=auto'
 
@@ -126,3 +131,5 @@ zinit snippet OMZ::plugins/git/git.plugin.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# CodeWhisperer post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh"
