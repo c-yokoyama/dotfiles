@@ -1,11 +1,15 @@
-# CodeWhisperer pre block. Keep at the top of this file.
-[[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh"
-# Add to  PATH
+# Add to PATH
 export PATH=$PATH:/usr/local/bin:/opt/homebrew/bin
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/Users/cy/.local/share/solana/install/active_release/bin:$PATH"
 
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Use gem
+if which ruby >/dev/null && which gem >/dev/null; then
+  PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
 
 # My aliases
 alias k='kubectl'
@@ -24,14 +28,13 @@ alias kb='kustomize build --load-restrictor LoadRestrictionsNone'
 alias awsp='export AWS_PROFILE=$(aws configure list-profiles | fzf)'
 export GREP_OPTIONS='--color=auto'
 
-# 補完
 autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 
 # direnv
 eval "$(direnv hook zsh)"
 
-### k8s
+# k8s
 alias kubectl='kubecolor'
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
 # krew
